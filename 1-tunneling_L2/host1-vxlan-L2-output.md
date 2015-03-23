@@ -1,7 +1,7 @@
 ## Output from $HOST1
 
 
-$ ip netns exec ns2 ifconfig
+`ip netns exec ns2 ifconfig`
 
     lo        Link encap:Local Loopback
               inet addr:127.0.0.1  Mask:255.0.0.0
@@ -22,7 +22,7 @@ $ ip netns exec ns2 ifconfig
               RX bytes:12641 (12.3 KiB)  TX bytes:1068 (1.0 KiB)
 
 
-$ ip netns exec ns2 ping 192.168.100.2
+`ip netns exec ns2 ping 192.168.100.2`
 
     PING 192.168.100.2 (192.168.100.2) 56(84) bytes of data.
     64 bytes from 192.168.100.2: icmp_seq=1 ttl=64 time=0.407 ms
@@ -33,7 +33,7 @@ $ ip netns exec ns2 ping 192.168.100.2
 
 Arp from global tables (note 192.168.100.x does not appear)
 
-$ arp
+`arp`
 
     Address                  HWtype  HWaddress           Flags Mask            Iface
     172.16.86.2              ether   00:50:56:eb:bf:77   C                     eth0
@@ -42,7 +42,7 @@ $ arp
 
 Arp from namespace ns2 (note 192.168.100.x does appear)
 
-$ ip netns exec ns2 arp
+`ip netns exec ns2 arp`
 
     Address                  HWtype  HWaddress           Flags Mask            Iface
     192.168.100.2            ether   7e:9e:a7:ab:bd:82   C                     veth0
@@ -61,12 +61,11 @@ Example logs
     Mar 22 07:10:53 deb-142 kernel: [  304.370230] br1: port 2(vxlan-200) entered learning state
     Mar 22 07:10:56 deb-142 kernel: [  308.080788] br1: topology change detected, propagating
     Mar 22 07:10:56 deb-142 kernel: [  308.080803] br1: port 1(veth0-ns1) entered forwarding state
-    Mar 22 07:10:56 deb-142 NetworkManager[4736]: <info> (br1): link connected
     Mar 22 07:11:08 deb-142 kernel: [  319.404745] br1: topology change detected, propagating
     Mar 2 deb-142 kernel: [  319.404841] br1: port 2(vxlan-200) entered forwarding state
 
 
-(ARP) arping -c 1 192.168.100.3
+`(ARP) arping -c 1 192.168.100.3`
 
     ARPING 192.168.100.3 from 192.168.100.2 veth0
     Unicast reply from 192.168.100.3 [FA:9E:8E:29:1B:C8]  1.074ms
@@ -75,7 +74,8 @@ Example logs
 
 Performance test using iperf on the server side:
 
-    ip netns exec ns2 iperf -s
+`ip netns exec ns2 iperf -s`
+
     ------------------------------------------------------------
     Server listening on TCP port 5001
     TCP window size: 85.3 KByte (default)
@@ -86,7 +86,8 @@ Performance test using iperf on the server side:
 
 On the client side:
 
-    ip netns exec testns2 iperf -c 192.168.10.2
+`ip netns exec ns2 iperf -c 192.168.10.2`
+
     ------------------------------------------------------------
     Client connecting to 192.168.10.2, TCP port 5001
     TCP window size: 45.0 KByte (default)

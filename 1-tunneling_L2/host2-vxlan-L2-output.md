@@ -1,6 +1,6 @@
 ## Output from $HOST2
 
-$ ip netns exec ns1 ifconfig
+`ip netns exec ns1 ifconfig`
 
       lo        Link encap:Local Loopback
                 inet addr:127.0.0.1  Mask:255.0.0.0
@@ -20,7 +20,7 @@ $ ip netns exec ns1 ifconfig
                 collisions:0 txqueuelen:1000
                 RX bytes:53511 (52.2 KiB)  TX bytes:58372 (57.0 KiB)
 
-$ ip netns exec ns1 ping 192.168.100.3
+`ip netns exec ns1 ping 192.168.100.3`
 
     PING 192.168.100.3 (192.168.100.3) 56(84) bytes of data.
     64 bytes from 192.168.100.3: icmp_seq=1 ttl=64 time=0.567 ms
@@ -29,7 +29,7 @@ $ ip netns exec ns1 ping 192.168.100.3
 
 Arp from global tables (note 192.168.100.x does not appear, only the ARP entry from the TEP)
 
-$ arp
+`arp`
 
     Address                  HWtype  HWaddress           Flags Mask            Iface
     172.16.86.2              ether   00:50:56:eb:bf:77   C                     eth0
@@ -38,7 +38,7 @@ $ arp
 
 Arp from namespace ns1 (note 192.168.100.x does appear)
 
-$ ip netns exec ns1 arp
+`ip netns exec ns1 arp`
 
       Address                  HWtype  HWaddress           Flags Mask            Iface
       192.168.100.3            ether   fa:9e:8e:29:1b:c8   C                     veth0
