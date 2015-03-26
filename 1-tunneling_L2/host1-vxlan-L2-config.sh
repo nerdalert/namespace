@@ -1,3 +1,4 @@
+#!/bin/bash
 
 ### Host #1 Configuration (Host IP: $HOST1) ###
 

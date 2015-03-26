@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 # delete interfaces created except for then usual suspects, eth, lo, etc
 for link in `sudo ip a | grep 'vm\|br\|veth\|tap' | awk '{print $2}' | cut -d':' -f 1`; do
@@ -13,7 +13,6 @@ done
 
 for br in $(sudo brctl show | tail -1 | awk '{print $1}' | xargs $@ | grep -E '(vswitch|test|br|sw)'); do
     echo "deleting bridge ${br}"
-    #ip link set ${br} down
     sudo ip link set ${br} down && sudo brctl delbr ${br}
 done
 
