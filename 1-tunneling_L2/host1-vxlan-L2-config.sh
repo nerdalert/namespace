@@ -50,7 +50,8 @@ This has differently named netns namespaces. They can be named the same as long 
 #####  Host 1 Bridge (Host IP: $HOST1)
 
     brctl addbr br2
-    brctl stp br2 on
+    brctl stp br2 on # optional
+    sudo ip link set br2 up
     brctl addif br2 veth0-ns1
 
 ##### Host 1  point2point  VXLAN (Host IP: $HOST1)
