@@ -37,7 +37,8 @@
 ##### Host 2 Bridge (Host IP: $HOST2)
 
     brctl addbr br2
-    brctl stp br2 on
+    brctl stp br2 on # optional
+    sudo ip link set br2 up
     brctl addif br2 veth0-ns2
 
 #### *(optionally but if in doubt it is safer)* turn on STP
